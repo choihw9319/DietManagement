@@ -54,18 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idET_singUp" />
 
-    <Button
-        android:id="@+id/nickNameDoubleCheckBTN_singUp"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:text="중복확인"
-        android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
-        app:layout_constraintStart_toEndOf="@+id/nickNameET_singUp"
-        app:layout_constraintTop_toBottomOf="@+id/idDoubleCheckBTN_singUp" />
-
     <EditText
         android:id="@+id/pwET_singUp"
         android:layout_width="350dp"
