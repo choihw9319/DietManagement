@@ -17,46 +17,50 @@
         android:text="회원가입"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/idET_singUp"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:hint="아이디"
-        android:background="@drawable/edittext_background"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView_singUp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_singUp" />
-
-    <Button
-        android:id="@+id/idDoubleCheckBTN_singUp"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:id="@+id/cl_container"
         android:layout_marginTop="24dp"
-        android:textSize="13sp"
-        android:text="중복확인"
-        android:backgroundTint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toEndOf="@+id/nickNameET_singUp"
-        app:layout_constraintTop_toBottomOf="@+id/textView_singUp" />
+        android:layout_height="50dp">
+
+        <EditText
+            android:id="@+id/idET_singUp"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:hint="아이디"
+            android:background="@drawable/edittext_background"
+            app:layout_constraintEnd_toStartOf="@+id/idDoubleCheckBTN_singUp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/idDoubleCheckBTN_singUp"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:textSize="13sp"
+            android:text="중복확인"
+            android:backgroundTint="#000000"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/idET_singUp"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
         android:id="@+id/nickNameET_singUp"
-        android:layout_width="250dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:hint="닉네임"
         android:background="@drawable/edittext_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idET_singUp" />
+        app:layout_constraintTop_toBottomOf="@+id/cl_container" />
 
     <EditText
         android:id="@+id/pwET_singUp"
@@ -66,7 +70,6 @@
         android:hint="비밀번호"
         android:background="@drawable/edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nickNameET_singUp" />
 
@@ -78,7 +81,6 @@
         android:layout_marginTop="16dp"
         android:hint="비밀번호 확인"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwET_singUp" />
 
@@ -90,7 +92,6 @@
         android:hint="키"
         android:background="@drawable/edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwCheckET_singUp" />
 
@@ -102,7 +103,6 @@
         android:background="@drawable/edittext_background"
         android:hint="체중"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightET_singUp" />
 
@@ -112,10 +112,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
-
         android:entries="@array/gender"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightET_singUp" />
 
@@ -123,12 +121,12 @@
         android:id="@+id/singUpBTN_singUp"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:backgroundTint="#000000"
         android:text="가입하기"
         android:textSize="15sp"
-        android:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderSpinner_singUp"
         app:layout_constraintVertical_bias="0.328" />
@@ -138,8 +136,8 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginEnd="52dp"
-        android:text="취소"
         android:backgroundTint="#000000"
+        android:text="취소"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
