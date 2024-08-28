@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -21,7 +24,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText idET_singUp, nickNameET_singUp, pwET_singUp, pwCheckET_singUp, heightET_singUp, weightET_singUp;
     private Spinner genderSpinner_singUp;
-    private Button idDoubleCheckBTN_singUp,signUpBTN_singUp, dismissBTN_singUp;
+    private Button idDoubleCheckBTN_singUp, signUpBTN_singUp, dismissBTN_singUp;
+    private Boolean res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,12 @@ public class SignUpActivity extends AppCompatActivity {
         genderSpinner_singUp = findViewById(R.id.genderSpinner_singUp);
         signUpBTN_singUp = findViewById(R.id.singUpBTN_singUp);
         dismissBTN_singUp = findViewById(R.id.dismissBTN_singUp);
+        res = false;
 
         idDoubleCheckBTN_singUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                
             }
         });
 
@@ -98,8 +103,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                 // 서버 응답 코드 확인
                 int responseCode = conn.getResponseCode();
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                if (responseCode == HttpURLConnection.HTTP_OK && res && pwET_singUp.getText().toString().trim().equals(pwCheckET_singUp.getText().toString().trim())) {
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                     return "Signup successful";
                 } else {
