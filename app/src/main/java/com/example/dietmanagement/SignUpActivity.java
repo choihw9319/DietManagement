@@ -20,7 +20,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText idET_singUp, nickNameET_singUp, pwET_singUp, pwCheckET_singUp, heightET_singUp, weightET_singUp;
     private Spinner genderSpinner_singUp;
-    private Button signUpBTN_singUp, dismissBTN_singUp;
+    private Button idDoubleCheckBTN_singUp,signUpBTN_singUp, dismissBTN_singUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         // View 초기화
+        idDoubleCheckBTN_singUp = findViewById(R.id.idDoubleCheckBTN_singUp);
         idET_singUp = findViewById(R.id.idET_singUp);
         nickNameET_singUp = findViewById(R.id.nickNameET_singUp);
         pwET_singUp = findViewById(R.id.pwET_singUp);
@@ -37,6 +38,13 @@ public class SignUpActivity extends AppCompatActivity {
         genderSpinner_singUp = findViewById(R.id.genderSpinner_singUp);
         signUpBTN_singUp = findViewById(R.id.singUpBTN_singUp);
         dismissBTN_singUp = findViewById(R.id.dismissBTN_singUp);
+
+        idDoubleCheckBTN_singUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         // "가입하기" 버튼 클릭 이벤트 처리
         signUpBTN_singUp.setOnClickListener(new View.OnClickListener() {
