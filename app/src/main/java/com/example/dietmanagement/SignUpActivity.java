@@ -1,5 +1,6 @@
 package com.example.dietmanagement;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -98,6 +99,8 @@ public class SignUpActivity extends AppCompatActivity {
                 // 서버 응답 코드 확인
                 int responseCode = conn.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_OK) {
+                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(intent);
                     return "Signup successful";
                 } else {
                     return "Signup failed: " + responseCode;

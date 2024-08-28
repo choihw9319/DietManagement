@@ -88,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
                 // 서버 응답 코드 확인
                 int responseCode = conn.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_OK) {
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
                     return "서버로부터의 성공적인 응답";  // 예시 응답 메시지
                 } else {
                     return "로그인 실패: " + responseCode;

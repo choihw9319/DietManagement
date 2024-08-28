@@ -121,29 +121,25 @@
         android:id="@+id/singUpBTN_singUp"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#000000"
         android:text="가입하기"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.226"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genderSpinner_singUp"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintStart_toStartOf="@+id/weightET_singUp"
+        app:layout_constraintTop_toTopOf="@+id/genderSpinner_singUp"
+        app:layout_constraintTop_toBottomOf="@+id/weightET_singUp"/>
 
     <Button
         android:id="@+id/dismissBTN_singUp"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#000000"
         android:text="취소"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/singUpBTN_singUp"
-        app:layout_constraintTop_toBottomOf="@+id/genderSpinner_singUp"
-        app:layout_constraintVertical_bias="0.328" />
-
+        app:layout_constraintTop_toTopOf="@+id/genderSpinner_singUp"
+        app:layout_constraintEnd_toEndOf="@+id/weightET_singUp"
+        app:layout_constraintTop_toBottomOf="@+id/weightET_singUp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
