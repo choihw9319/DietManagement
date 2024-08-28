@@ -58,11 +58,19 @@ public class SignUpActivity extends AppCompatActivity {
         signUpBTN_singUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String password = pwET_singUp.getText().toString().trim();
+                String passwordCheck = pwCheckET_singUp.getText().toString().trim();
+
                 if (!isIdChecked) {
                     Toast.makeText(SignUpActivity.this, "아이디 중복 체크를 해주세요.", Toast.LENGTH_LONG).show();
                 } else if (!res) {
                     Toast.makeText(SignUpActivity.this, "아이디가 중복됩니다. 다른 아이디를 사용하세요.", Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else if (!password.equals(passwordCheck)) {
+                    // 비밀번호가 서로 다를 때의 처리
+                    Toast.makeText(SignUpActivity.this, "비밀번호가 서로 다릅니다.", Toast.LENGTH_LONG).show();
+                }
+                else {
                     new SignupTask().execute();
                 }
             }
