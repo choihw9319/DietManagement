@@ -20,8 +20,7 @@ public class SignoutDialogFragment extends DialogFragment {
         LayoutInflater inflater_signout = requireActivity().getLayoutInflater();
         View dialogView = inflater_signout.inflate(R.layout.fragment_signout_dialog, null);
 
-        builder.setView(dialogView)
-                .setTitle("회원 탈퇴");
+        builder.setView(dialogView);
 
         return builder.create();
     }
