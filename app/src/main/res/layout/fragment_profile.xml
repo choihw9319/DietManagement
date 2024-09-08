@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/profileIB_profile"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_person_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:layout_weight="2"
+            android:layout_margin="40dp"/>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/changeinfoBT_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="정보 수정"/>
+
+            <Button
+                android:id="@+id/logoutBT_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="로그아웃"/>
+
+            <Button
+                android:id="@+id/signoutBT_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="회원 탈퇴"/>
+
+            <Button
+                android:id="@+id/PrivacyPolicyBT_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="개인정보 처리 방침"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
