@@ -3,6 +3,7 @@ package com.example.dietmanagement;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -90,6 +91,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (responseCode == HttpURLConnection.HTTP_OK) {
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
+                    Define.ins().userId = idET_login.getText().toString();
+                    Log.d("DietManagement",Define.ins().userId);
                     return "서버로부터의 성공적인 응답";  // 예시 응답 메시지
                 } else {
                     return "로그인 실패: " + responseCode;
