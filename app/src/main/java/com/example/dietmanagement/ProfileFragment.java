@@ -23,8 +23,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        ImageButton profile = view.findViewById(R.id.profileIB_profile);
         Button changeinfo = view.findViewById(R.id.changeinfoBT_profile);
         Button logout = view.findViewById(R.id.logoutBT_profile);
         Button signout = view.findViewById(R.id.signoutBT_profile);

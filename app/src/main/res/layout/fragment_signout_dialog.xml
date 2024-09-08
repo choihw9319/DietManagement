@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="정말로 회원 탈퇴시겠습니까?"
+            android:text="정말로 회원을 탈퇴시겠습니까?"
             android:textSize="30dp"/>
 
         <LinearLayout

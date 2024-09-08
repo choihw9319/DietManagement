@@ -5,60 +5,55 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".ProfileFragment"
+    android:backgroundTint="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="250dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:backgroundTint="@color/white">
 
-        <ImageButton
-            android:id="@+id/profileIB_profile"
-            android:layout_width="300dp"
+        <Button
+            android:id="@+id/changeinfoBT_profile"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/baseline_person_24"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:layout_weight="2"
-            android:layout_margin="40dp"/>
+            android:layout_weight="1"
+            android:text="정보 수정"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="#00ff0000"
+            android:layout_margin="10dp"/>
 
-        <LinearLayout
-            android:layout_width="300dp"
+        <Button
+            android:id="@+id/logoutBT_profile"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp">
+            android:layout_weight="1"
+            android:text="로그아웃"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="#00ff0000"
+            android:layout_margin="10dp"/>
 
-            <Button
-                android:id="@+id/changeinfoBT_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="정보 수정"/>
-
-            <Button
-                android:id="@+id/logoutBT_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="로그아웃"/>
-
-            <Button
-                android:id="@+id/signoutBT_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="회원 탈퇴"/>
-
-            <Button
-                android:id="@+id/PrivacyPolicyBT_profile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="개인정보 처리 방침"/>
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/signoutBT_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="회원 탈퇴"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:background="#00ff0000"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 

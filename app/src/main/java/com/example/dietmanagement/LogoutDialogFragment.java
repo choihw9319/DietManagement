@@ -19,8 +19,7 @@ public class LogoutDialogFragment extends DialogFragment {
         LayoutInflater inflater_logout = requireActivity().getLayoutInflater();
         View dialogView = inflater_logout.inflate(R.layout.fragment_logout, null);
 
-        builder.setView(dialogView)
-                .setTitle("로그 아웃");
+        builder.setView(dialogView);
 
         return builder.create();
     }
