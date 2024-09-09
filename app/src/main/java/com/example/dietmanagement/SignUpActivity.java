@@ -70,6 +70,9 @@ public class SignUpActivity extends AppCompatActivity {
                     // 비밀번호가 서로 다를 때의 처리
                     Toast.makeText(SignUpActivity.this, "비밀번호가 서로 다릅니다.", Toast.LENGTH_LONG).show();
                 }
+                else if (idET_singUp.getText().toString().equals("")||nickNameET_singUp.getText().toString().equals("")||pwCheckET_singUp.getText().toString().equals("")||pwET_singUp.getText().toString().equals("")||heightET_singUp.getText().toString().equals("")||weightET_singUp.getText().toString().equals("")||genderSpinner_singUp.getSelectedItem().equals("성별")){
+                    Toast.makeText(SignUpActivity.this, "모든 필드의 값을 작성해주세요", Toast.LENGTH_LONG).show();
+                }
                 else {
                     new SignupTask().execute();
                 }

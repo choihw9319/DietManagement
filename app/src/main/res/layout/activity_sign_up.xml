@@ -93,6 +93,7 @@
         android:background="@drawable/edittext_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number"
         app:layout_constraintTop_toBottomOf="@+id/pwCheckET_singUp" />
 
     <EditText
@@ -102,6 +103,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/edittext_background"
         android:hint="체중"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightET_singUp" />
