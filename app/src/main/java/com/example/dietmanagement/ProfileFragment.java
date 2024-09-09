@@ -1,16 +1,11 @@
 package com.example.dietmanagement;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ProfileFragment extends Fragment {
 
@@ -23,10 +18,12 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
         Button changeinfo = view.findViewById(R.id.changeinfoBT_profile);
         Button logout = view.findViewById(R.id.logoutBT_profile);
         Button signout = view.findViewById(R.id.signoutBT_profile);
 
+        // 정보 변경 버튼 클릭 리스너
         changeinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +32,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        // 로그아웃 버튼 클릭 리스너
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,11 +41,13 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        // 회원 탈퇴 버튼 클릭 리스너
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignoutDialogFragment SignoutDialogFragment = new SignoutDialogFragment();
-                SignoutDialogFragment.show(getParentFragmentManager(), "SignoutDialogFragmentTag");
+                // SignoutDialogFragment 호출
+                SignoutDialogFragment signoutDialogFragment = new SignoutDialogFragment();
+                signoutDialogFragment.show(getParentFragmentManager(), "SignoutDialogFragmentTag");
             }
         });
 
