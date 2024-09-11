@@ -92,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     Define.ins().userId = idET_login.getText().toString();
+                    Define.ins().pw = pwET_login.getText().toString();
                     Log.d("DietManagement",Define.ins().userId);
                     return "서버로부터의 성공적인 응답";  // 예시 응답 메시지
                 } else {
