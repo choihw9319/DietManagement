@@ -18,6 +18,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -64,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
+            String responseMessage = "";  // Initialize responseMessage
+
             try {
                 // 서버 URL 설정
                 URL url = new URL("http://112.172.248.92:1057/login");
@@ -89,20 +94,41 @@ public class LoginActivity extends AppCompatActivity {
                 // 서버 응답 코드 확인
                 int responseCode = conn.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_OK) {
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                    Define.ins().userId = idET_login.getText().toString();
-                    Define.ins().pw = pwET_login.getText().toString();
-                    Log.d("DietManagement",Define.ins().userId);
-                    return "서버로부터의 성공적인 응답";  // 예시 응답 메시지
+                    // 서버로부터 응답 데이터 읽기
+                    InputStream inputStream = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+                    StringBuilder responseBuilder = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        responseBuilder.append(line);
+                    }
+                    reader.close();
+
+                    // 응답 JSON 파싱
+                    JSONObject jsonResponse = new JSONObject(responseBuilder.toString());
+
+                    // Define 클래스에 저장
+                    Define.ins().userId = jsonResponse.optString("userid");
+                    Define.ins().pw = jsonResponse.optString("pw");
+                    Define.ins().nickName = jsonResponse.optString("nick");
+                    Define.ins().height = jsonResponse.optInt("height");
+                    Define.ins().weight = jsonResponse.optInt("weight");
+                    Define.ins().gender = jsonResponse.optString("gender");
+
+                    // 로그에 출력
+                    Log.d("DietManagement", "User Info: " + jsonResponse.toString());
+
+                    responseMessage = "서버로부터의 성공적인 응답";  // 예시 응답 메시지
                 } else {
-                    return "로그인 실패: " + responseCode;
+                    responseMessage = "로그인 실패: " + responseCode;
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
-                return "Exception: " + e.getMessage();
+                responseMessage = "Exception: " + e.getMessage();
             }
+
+            return responseMessage;
         }
 
         @Override
@@ -110,6 +136,15 @@ public class LoginActivity extends AppCompatActivity {
             // 로그인 성공 여부와 서버 응답값을 사용자에게 표시
             String message = "로그인 성공: " + result;
             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+
+            // Define 클래스의 값들을 로그에 출력
+            Log.d("DietManagement", "Stored User Info in Define:");
+            Log.d("DietManagement", "UserID: " + Define.ins().userId);
+            Log.d("DietManagement", "Password: " + Define.ins().pw);
+            Log.d("DietManagement", "Nickname: " + Define.ins().nickName);
+            Log.d("DietManagement", "Height: " + Define.ins().height);
+            Log.d("DietManagement", "Weight: " + Define.ins().weight);
+            Log.d("DietManagement", "Gender: " + Define.ins().gender);
         }
     }
 }

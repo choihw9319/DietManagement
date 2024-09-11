@@ -3,9 +3,12 @@ package com.example.dietmanagement;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.HTTP;
+import retrofit2.http.Query;
 
 public interface ApiService {
-    @DELETE("api/user/delete")
+
+    @HTTP(method = "DELETE", path = "/deleteUser", hasBody = true)
     Call<Void> deleteUser(@Body UserIdRequest request);
 }
 

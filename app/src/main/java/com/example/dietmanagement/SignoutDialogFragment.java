@@ -40,34 +40,42 @@ public class SignoutDialogFragment extends DialogFragment {
     private void sendDeleteRequest() {
         // Retrofit 클라이언트 생성
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://yourserver.com/") // 서버의 URL로 변경 필요
+                .baseUrl("http://112.172.248.92:1057/") // 서버의 URL로 변경 필요
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         ApiService apiService = retrofit.create(ApiService.class);
-        // Define.ins().userid 값을 담아 요청 생성
+
+        // Define.ins().userId를 사용해 UserIdRequest 객체 생성
         UserIdRequest request = new UserIdRequest(Define.ins().userId);
 
         // DELETE 요청 실행
         apiService.deleteUser(request).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // 회원 탈퇴 성공 처리
-                    Toast.makeText(requireContext(), "회원 탈퇴 성공", Toast.LENGTH_SHORT).show();
-                    Log.d("SignOut", "회원 탈퇴 성공");
+                if (getContext() != null) {
+                    if (response.isSuccessful()) {
+                        // 회원 탈퇴 성공 처리
+                        Toast.makeText(getContext(), "회원 탈퇴 성공", Toast.LENGTH_SHORT).show();
+                        Log.d("SignOut", "회원 탈퇴 성공");
+                    } else {
+                        // 실패 처리
+                        Toast.makeText(getContext(), "회원 탈퇴 실패: " + response.code(), Toast.LENGTH_SHORT).show();
+                        Log.d("SignOut", "회원 탈퇴 실패: " + response.code());
+                    }
                 } else {
-                    // 실패 처리
-                    Toast.makeText(requireContext(), "회원 탈퇴 실패: " + response.code(), Toast.LENGTH_SHORT).show();
-                    Log.d("SignOut", "회원 탈퇴 실패: " + response.code());
+                    Log.w("SignOut", "Fragment not attached to context during onResponse.");
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                // 네트워크 오류 처리
-                Toast.makeText(requireContext(), "오류 발생: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("SignOut", "오류 발생: " + t.getMessage());
+                if (getContext() != null) {
+                    Toast.makeText(getContext(), "오류 발생: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("SignOut", "오류 발생: " + t.getMessage());
+                } else {
+                    Log.e("SignOut", "Fragment not attached to context during onFailure.", t);
+                }
             }
         });
     }
