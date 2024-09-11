@@ -119,6 +119,9 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d("DietManagement", "User Info: " + jsonResponse.toString());
 
                     responseMessage = "서버로부터의 성공적인 응답";  // 예시 응답 메시지
+
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(intent);
                 } else {
                     responseMessage = "로그인 실패: " + responseCode;
                 }

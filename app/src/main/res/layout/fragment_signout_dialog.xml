@@ -19,21 +19,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
+            android:layout_height="60dp"
+            android:orientation="horizontal">
             <Button
-                android:layout_width="120dp"
+                android:id="@+id/yes_signOut"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="네"
-                android:layout_margin="10dp"/>
-
+                android:textColor="#0000FF"
+                android:background="#00000000"
+                android:text="확인" />
             <Button
-                android:layout_width="120dp"
+                android:id="@+id/no_signOut"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="아니요"
-                android:layout_margin="10dp"/>
-
+                android:textColor="#0000FF"
+                android:background="#00000000"
+                android:text="취소" />
         </LinearLayout>
 
     </LinearLayout>

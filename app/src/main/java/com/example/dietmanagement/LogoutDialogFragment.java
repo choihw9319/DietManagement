@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+
 public class LogoutDialogFragment extends DialogFragment {
 
     Button yes;
@@ -42,6 +44,13 @@ public class LogoutDialogFragment extends DialogFragment {
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
                 Log.d("DietManagement",Define.ins().userId);
+            }
+        });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
             }
         });
 
