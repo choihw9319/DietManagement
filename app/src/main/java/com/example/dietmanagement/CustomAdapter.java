@@ -13,10 +13,10 @@ import java.util.List;
 public class CustomAdapter extends BaseAdapter {
 
     private Context context;
-    private List<costomlistview> itemList;
+    private List<CostomListView> itemList;
     private LayoutInflater inflater;
 
-    public CustomAdapter(Context context, List<costomlistview> itemList) {
+    public CustomAdapter(Context context, List<CostomListView> itemList) {
         this.context = context;
         this.itemList = itemList;
         this.inflater = LayoutInflater.from(context);
@@ -43,15 +43,18 @@ public class CustomAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.list_item, parent, false);
         }
 
-        costomlistview item = (costomlistview) getItem(position);
+        CostomListView item = (CostomListView) getItem(position);
 
         ImageView imageView = convertView.findViewById(R.id.item_image);
         TextView titleView = convertView.findViewById(R.id.item_title);
         TextView subtitleView = convertView.findViewById(R.id.item_subtitle);
 
-        imageView.setImageResource(item.getImageResId());
-        titleView.setText(item.getTitle());
-        subtitleView.setText(item.getSubtitle());
+        // Use setImageURI for Uri
+        imageView.setImageURI(item.getImageUri());
+
+        // Use setText for String
+        titleView.setText(item.getFood_Name());
+        subtitleView.setText(String.valueOf(item.getFood_Kcal()));
 
         return convertView;
     }
