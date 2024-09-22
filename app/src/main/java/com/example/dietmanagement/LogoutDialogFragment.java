@@ -43,7 +43,13 @@ public class LogoutDialogFragment extends DialogFragment {
 
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
-                Log.d("DietManagement",Define.ins().userId);
+                Log.d("DietManagement", "Stored User Info in Define:");
+                Log.d("DietManagement", "UserID: " + Define.ins().userId);
+                Log.d("DietManagement", "Password: " + Define.ins().pw);
+                Log.d("DietManagement", "Nickname: " + Define.ins().nickName);
+                Log.d("DietManagement", "Height: " + Define.ins().height);
+                Log.d("DietManagement", "Weight: " + Define.ins().weight);
+                Log.d("DietManagement", "Gender: " + Define.ins().gender);
             }
         });
 

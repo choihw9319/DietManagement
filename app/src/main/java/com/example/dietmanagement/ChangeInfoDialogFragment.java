@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -52,9 +54,13 @@ public class ChangeInfoDialogFragment extends DialogFragment {
                     int height = Integer.parseInt(heightStr); // 키를 정수로 변환
                     int weight = Integer.parseInt(weightStr); // 몸무게를 정수로 변환
                     String userid = Define.ins().userId; // Define 클래스에서 사용자 ID를 가져옴
-
                     // 비동기 작업을 통해 서버로 POST 요청을 보냄
                     new UpdateUserInfoTask(requireContext()).execute(height, weight, userid);
+                    Define.ins().height = height;
+                    Define.ins().weight = weight;
+                    Log.d("DietManagement", "Stored User Info in Define:");
+                    Log.d("DietManagement", "Height: " + Define.ins().height);
+                    Log.d("DietManagement", "Weight: " + Define.ins().weight);
                 } else {
                     // 입력 값이 비어있을 경우 경고 메시지 표시
                     Toast.makeText(getActivity(), "모든 정보를 입력해 주세요.", Toast.LENGTH_SHORT).show();

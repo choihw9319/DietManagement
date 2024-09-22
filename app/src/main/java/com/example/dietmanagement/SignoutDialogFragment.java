@@ -2,6 +2,7 @@ package com.example.dietmanagement;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -23,6 +24,22 @@ public class SignoutDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         sendDeleteRequest(); // 확인 버튼을 눌렀을 때 회원 탈퇴 요청을 보냄
+                        Define.ins().userId = "";
+                        Define.ins().gender = "";
+                        Define.ins().pw = "";
+                        Define.ins().height = 0;
+                        Define.ins().weight = 0;
+                        Define.ins().nickName = "";
+
+                        Intent intent = new Intent(getContext(), LoginActivity.class);
+                        startActivity(intent);
+                        Log.d("DietManagement", "Stored User Info in Define:");
+                        Log.d("DietManagement", "UserID: " + Define.ins().userId);
+                        Log.d("DietManagement", "Password: " + Define.ins().pw);
+                        Log.d("DietManagement", "Nickname: " + Define.ins().nickName);
+                        Log.d("DietManagement", "Height: " + Define.ins().height);
+                        Log.d("DietManagement", "Weight: " + Define.ins().weight);
+                        Log.d("DietManagement", "Gender: " + Define.ins().gender);
                     }
                 })
                 .setNegativeButton("취소", new DialogInterface.OnClickListener() {
